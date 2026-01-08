@@ -1,21 +1,38 @@
 {
-  "name": "cap-kit-monorepo",
+  "name": "capacitor-plugins",
   "private": true,
   "scripts": {
     "build": "pnpm -r build",
     "lint": "pnpm -r lint",
     "test": "pnpm -r test",
     "verify": "pnpm -r run verify",
-    "docgen": "pnpm -r run docgen"
+    "format": "pnpm -r run format",
+    "docgen": "pnpm -r run docgen",
+    "prepare": "husky"
   },
   "author": "Fabio Martino",
+  "lint-staged": {
+    "**/*.{js,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "**/*.{json,md,html,css}": [
+      "prettier --write"
+    ]
+  },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "swiftlint",
-      "@ionic/swiftlint-config"
+      "swiftlint"
     ],
     "patchedDependencies": {
       "@capacitor/docgen@0.3.1": "patches/@capacitor__docgen@0.3.1.patch"
     }
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.29.8",
+    "@commitlint/cli": "^20.3.0",
+    "@commitlint/config-conventional": "^20.3.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7"
   }
 }
