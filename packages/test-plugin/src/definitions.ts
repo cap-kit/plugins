@@ -23,6 +23,36 @@ declare module '@capacitor/cli' {
 }
 
 /**
+ * Options for the echo method.
+ */
+export interface EchoOptions {
+  /**
+   * The value to be echoed.
+   */
+  value: string;
+}
+
+/**
+ * Result returned by the echo method.
+ */
+export interface EchoResult {
+  /**
+   * The echoed value.
+   */
+  value: string;
+}
+
+/**
+ * Result returned by the getPluginVersion method.
+ */
+export interface PluginVersionResult {
+  /**
+   * The native version string of the plugin.
+   */
+  version: string;
+}
+
+/**
  * Capacitor Test plugin interface.
  */
 export interface TestPlugin {
@@ -32,8 +62,8 @@ export interface TestPlugin {
    * If the plugin is configured with a `customMessage`, it will be appended
    * to the response.
    *
-   * @param options - An object containing a `value` property to be echoed back.
-   * @returns A promise resolving to an object containing the echoed `value`.
+   * @param options - The options containing the value to echo.
+   * @returns A promise resolving to the echo result.
    *
    * @example
    * ```typescript
@@ -45,13 +75,13 @@ export interface TestPlugin {
    *
    * @since 0.0.1
    */
-  echo(options: { value: string }): Promise<{ value: string }>;
+  echo(options: EchoOptions): Promise<EchoResult>;
 
   /**
    * Get the native Capacitor plugin version.
    *
-   * @returns Promise that resolves with the plugin version
-   * @throws Error if getting the version fails
+   * @returns A promise resolving to an object containing the version string.
+   * @throws Error if getting the version fails.
    *
    * @example
    * ```typescript
@@ -63,5 +93,5 @@ export interface TestPlugin {
    *
    * @since 0.0.1
    */
-  getPluginVersion(): Promise<{ version: string }>;
+  getPluginVersion(): Promise<PluginVersionResult>;
 }

@@ -60,7 +60,7 @@ public class TestPlugin: CAPPlugin, CAPBridgedPlugin {
 
         // Append the custom message from the configuration
         if let configMessage = config?.customMessage {
-            value = value + configMessage
+            value += configMessage
         }
 
         call.resolve([

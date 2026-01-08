@@ -6,7 +6,7 @@ import Capacitor
  * This function is designed to format log messages for the Test plugin. It prepends the log output
  * with a custom prefix (`⚡️  Test -`) to easily identify logs associated with this plugin.
  *
- * @param items - A variadic parameter accepting a list of items to log. Each item will be converted to a string and logged sequentially.
+ * @param items - Items to log, stringified and logged in order.
  * @param separator - A string used to separate the logged items. Defaults to a single space (`" "`).
  * @param terminator - A string appended to the end of the log message. Defaults to a newline (`"\n"`).
  *
@@ -18,7 +18,7 @@ import Capacitor
  *
  * Note:
  * - This function uses Capacitor's `CAPLog.print` for outputting log messages.
- * - If multiple items are logged, they will be separated by the specified `separator` and terminated by the `terminator`.
+ * - Multiple items use `separator` and end with `terminator`.
  */
 func log(_ items: Any..., separator: String = " ", terminator: String = "\n") {
     // Prefix the log with "⚡️  Test -"

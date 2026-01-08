@@ -5,13 +5,17 @@
     "build": "pnpm -r build",
     "lint": "pnpm -r lint",
     "test": "pnpm -r test",
-    "verify": "pnpm -r run verify"
+    "verify": "pnpm -r run verify",
+    "docgen": "pnpm -r run docgen"
   },
   "author": "Fabio Martino",
   "pnpm": {
     "onlyBuiltDependencies": [
       "swiftlint",
       "@ionic/swiftlint-config"
-    ]
+    ],
+    "patchedDependencies": {
+      "@capacitor/docgen@0.3.1": "patches/@capacitor__docgen@0.3.1.patch"
+    }
   }
 }

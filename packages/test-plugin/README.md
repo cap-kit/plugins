@@ -3,16 +3,24 @@
 </p>
 
 <h3 align="center">Test</h3>
-<p align="center"><strong><code>@cap-kit/test-plugin</code></strong></p>
-
 <p align="center">
-  Test plugin for Cap-Kit.
+  <strong>
+    <code>@cap-kit/test-plugin</code>
+  </strong>
 </p>
 
+<p align="center">Test plugin for Cap-Kit.</p>
+
 <p align="center">
-  <a href="https://www.npmjs.com/package/@cap-kit/test-plugin"><img src="https://img.shields.io/npm/v/@cap-kit/test-plugin?style=flat-square" /></a>
-  <a href="https://www.npmjs.com/package/@cap-kit/test-plugin"><img src="https://img.shields.io/npm/dm/@cap-kit/test-plugin?style=flat-square" /></a>
-  <a href="https://www.npmjs.com/package/@cap-kit/test-plugin"><img src="https://img.shields.io/npm/l/@cap-kit/test-plugin?style=flat-square" /></a>
+  <a href="https://www.npmjs.com/package/@cap-kit/test-plugin">
+    <img src="https://img.shields.io/npm/v/@cap-kit/test-plugin?style=flat-square" />
+  </a>
+  <a href="https://www.npmjs.com/package/@cap-kit/test-plugin">
+    <img src="https://img.shields.io/npm/dm/@cap-kit/test-plugin?style=flat-square" />
+  </a>
+  <a href="https://www.npmjs.com/package/@cap-kit/test-plugin">
+    <img src="https://img.shields.io/npm/l/@cap-kit/test-plugin?style=flat-square" />
+  </a>
   <img src="https://img.shields.io/maintenance/yes/2026?style=flat-square" />
 </p>
 
@@ -61,7 +69,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 const config: CapacitorConfig = {
   plugins: {
     Test: {
-      customMessage: " - Hello from Config!",
+      customMessage: ' - Hello from Config!',
     },
   },
 };
@@ -71,13 +79,13 @@ export default config;
 
 </docgen-config>
 
-
 ## API
 
 <docgen-index>
 
-* [`echo(...)`](#echo)
-* [`getPluginVersion()`](#getpluginversion)
+- [`echo(...)`](#echo)
+- [`getPluginVersion()`](#getpluginversion)
+- [Interfaces](#interfaces)
 
 </docgen-index>
 
@@ -89,7 +97,7 @@ Capacitor Test plugin interface.
 ### echo(...)
 
 ```typescript
-echo(options: { value: string; }) => Promise<{ value: string; }>
+echo(options: EchoOptions) => Promise<EchoResult>
 ```
 
 Echoes the provided value.
@@ -97,34 +105,75 @@ Echoes the provided value.
 If the plugin is configured with a `customMessage`, it will be appended
 to the response.
 
-| Param         | Type                            | Description                                                  |
-| ------------- | ------------------------------- | ------------------------------------------------------------ |
-| **`options`** | <code>{ value: string; }</code> | - An object containing a `value` property to be echoed back. |
+| Param         | Type                                                | Description                                 |
+| ------------- | --------------------------------------------------- | ------------------------------------------- |
+| **`options`** | <code><a href="#echooptions">EchoOptions</a></code> | - The options containing the value to echo. |
 
-**Returns:** <code>Promise&lt;{ value: string; }&gt;</code>
+**Returns:** <code>Promise&lt;<a href="#echoresult">EchoResult</a>&gt;</code>
 
 **Since:** 0.0.1
 
---------------------
+#### Example
 
+```typescript
+import { Test } from '@cap-kit/test-plugin';
+
+const result = await Test.echo({ value: 'Hello, World!' });
+console.log(result.value); // Output: 'Hello, World!'
+```
+
+---
 
 ### getPluginVersion()
 
 ```typescript
-getPluginVersion() => Promise<{ version: string; }>
+getPluginVersion() => Promise<PluginVersionResult>
 ```
 
 Get the native Capacitor plugin version.
 
-**Returns:** <code>Promise&lt;{ version: string; }&gt;</code>
+**Returns:** <code>Promise&lt;<a href="#pluginversionresult">PluginVersionResult</a>&gt;</code>
 
 **Since:** 0.0.1
 
---------------------
+#### Example
+
+```typescript
+import { Test } from '@cap-kit/test-plugin';
+
+const { version } = await Test.getPluginVersion();
+console.log('Plugin version:', version); // Output: Plugin version: 0.0.1
+```
+
+---
+
+### Interfaces
+
+#### EchoResult
+
+Result returned by the echo method.
+
+| Prop        | Type                | Description       |
+| ----------- | ------------------- | ----------------- |
+| **`value`** | <code>string</code> | The echoed value. |
+
+#### EchoOptions
+
+Options for the echo method.
+
+| Prop        | Type                | Description             |
+| ----------- | ------------------- | ----------------------- |
+| **`value`** | <code>string</code> | The value to be echoed. |
+
+#### PluginVersionResult
+
+Result returned by the getPluginVersion method.
+
+| Prop          | Type                | Description                              |
+| ------------- | ------------------- | ---------------------------------------- |
+| **`version`** | <code>string</code> | The native version string of the plugin. |
 
 </docgen-api>
-
-
 
 ## Contributing
 

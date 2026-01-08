@@ -1,6 +1,6 @@
 /// <reference types="@cap-kit/test-plugin" />
 
-import { CapacitorConfig } from '@capacitor/cli';
+import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'com.example.plugin',
@@ -8,10 +8,10 @@ const config: CapacitorConfig = {
   webDir: 'dist',
   plugins: {
     SplashScreen: {
-      launchAutoHide: false
+      launchAutoHide: false,
     },
     Test: {
-      customMessage: " - Hello from Config!",
+      customMessage: ' - Hello from Config!',
     },
   },
 };
